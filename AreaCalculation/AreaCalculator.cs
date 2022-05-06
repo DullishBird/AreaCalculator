@@ -14,6 +14,24 @@
                 Console.WriteLine("Invalid arguments count.");
                 return 0.0;
             }
+            double aPow = Math.Pow(args[0], 2);
+            double bPow = Math.Pow(args[1], 2);
+            double cPow = Math.Pow(args[2], 2);
+
+            if (aPow + bPow == cPow)
+            {
+                Console.WriteLine("Triangle is right triangle");
+            }
+
+            if (aPow + cPow == bPow)
+            {
+                Console.WriteLine("Triangle is right triangle");
+            }
+
+            if (bPow + cPow == aPow)
+            {
+                Console.WriteLine("Triangle is right triangle");
+            }
 
             if (args[0] < 0 || args[1] < 0 || args[2] < 0)
             {
