@@ -13,13 +13,11 @@ public class RectangleArea : IAreaCalculation
     {
         if (args.Length < 2)
         {
-            Console.WriteLine("Invalid arguments count for rectangle area calculation.");
-            return 0.0;
+            throw new ArgumentException("Invalid arguments count for rectangle area calculation.");
         }
         if (args[0] < 0 || args[1] < 0)
         {
-            Console.WriteLine("Rectangle's side length cannot be negative"); //TODO : Must be replaced to Exceptions
-            return 0;
+            throw new ArgumentException("Rectangle's side length cannot be negative");
         }
         return args[0] * args[1];
     }
@@ -30,7 +28,7 @@ public class RectangleArea : IAreaCalculation
 
 
 // 1. Вычисление площади фигуры без знания типа фигуры в compile-time // черная магия 
-// 2. Юнит-тесты // расширить, привести в порядок, заменить ошибки на Exceptions 
+// 2. Юнит-тесты // расширить, привести в порядок, заменить ошибки на Exceptions //Done 
 // 3. Проверку на то, является ли треугольник прямоугольным  // Done
 
 

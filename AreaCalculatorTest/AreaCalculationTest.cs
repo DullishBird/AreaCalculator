@@ -5,10 +5,9 @@ using System;
 namespace AreaCalculatorTest
 {
     [TestClass]
-    public class AreaCalculationTest
+    public class TriangleCalculationTest
     {
-        IAreaCalculation triangeleArea = new TriangleArea();
-        IAreaCalculation circleArea = new CircleArea();
+        IAreaCalculation triangleArea = new TriangleArea();
 
         [TestMethod]
         public void TriangleAreaTest()
@@ -16,46 +15,71 @@ namespace AreaCalculatorTest
             double[] sides = { 4.0, 5.0, 6.4031242374328486864882176746218 };
 
             double expected = 10;
-            double actual = triangeleArea.GetArea(sides);
+            double actual = triangleArea.GetArea(sides);
 
             Assert.AreEqual(expected, actual, "Expected and actual are not equal.");
         }
 
         [TestMethod]
-        public void RectangleAreaTest()
+        public void TriangleExceptionTest()   //для круга еще
         {
-            IAreaCalculation rectangleArea = new RectangleArea();
-            double expected = 25;
-            double actual = rectangleArea.GetArea(5.0, 5.0);
-            
-            Assert.AreEqual(expected, actual, "Expected and actual are not equal.");  
+            //IAreaCalculation triangleArea = new TriangleArea();
+            double[] sides = { -4.0, 5.0, 6.4031242374328486864882176746218 };
+            Action action = () => triangleArea.GetArea(sides);
+
+            Assert.ThrowsException<ArgumentException>(action);
         }
-        
+
+        [TestMethod]
+        public void TriangleFourParamsTest()
+        {
+            double[] sides = { 4.0, 5.0, 6.4031242374328486864882176746218, 5.0 };
+            Action action = () => triangleArea.GetArea(sides);
+
+            Assert.ThrowsException<ArgumentException>(action);
+        }
+
+    }
+
+    [TestClass]
+    public class CircleCalculationTest
+    {
+        IAreaCalculation circleArea = new CircleArea();
         [TestMethod]
         public void CircleAreaTest()
         {
+
             double expected = 201.06;
             double actual = circleArea.GetArea(8);
 
             Assert.AreEqual(expected, actual, 0.01, "Expected and actual are not equal.");
         }
-    }
-}
 
-public class RectangleArea : IAreaCalculation
-{
-    double IAreaCalculation.GetArea(params double[] args)
-    {
-        if (args.Length < 2)
+        [TestMethod]
+        public void CircleExceptionTest()
         {
-            Console.WriteLine("Invalid arguments count for rectangle area calculation.");
-            return 0.0;
+            double[] radius = { -8 };
+            Action action = () => circleArea.GetArea(radius);
+
+            Assert.ThrowsException<ArgumentException>(action);
         }
-        if (args[0] < 0 || args[1] < 0)
+
+        [TestMethod]
+        public void CircleTwoParamsExceptionTest()
         {
-            Console.WriteLine("Rectangle's side length cannot be negative"); //TODO : Must be replaced to Exceptions
-            return 0;
+            double[] radius = { 8 , 1 };
+            Action action = () => circleArea.GetArea(radius);
+
+            Assert.ThrowsException<ArgumentException>(action);
         }
-        return args[0] * args[1];
+
+        [TestMethod]
+        public void CircleZeroParamsExceptionTest()
+        {
+            double[] radius = { };
+            Action action = () => circleArea.GetArea(radius);
+
+            Assert.ThrowsException<ArgumentException>(action);
+        }
     }
 }

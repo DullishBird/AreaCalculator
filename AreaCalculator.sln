@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaCalculation", "AreaCalculation\AreaCalculation.csproj", "{0DE8BE60-CCD7-41BE-AFC9-E4FC80D4C54E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AreaCalculation", "AreaCalculation\AreaCalculation.csproj", "{0DE8BE60-CCD7-41BE-AFC9-E4FC80D4C54E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sandbox", "Sandbox\Sandbox.csproj", "{50C81359-9E96-46D8-BB4C-51FF29AC52DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Sandbox\Sandbox.csproj", "{50C81359-9E96-46D8-BB4C-51FF29AC52DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaCalculatorTest", "AreaCalculatorTest\AreaCalculatorTest.csproj", "{F2E3FFD9-65E6-4D99-A96B-ACE2F055DC6D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0DE8BE60-CCD7-41BE-AFC9-E4FC80D4C54E} = {0DE8BE60-CCD7-41BE-AFC9-E4FC80D4C54E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{50C81359-9E96-46D8-BB4C-51FF29AC52DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50C81359-9E96-46D8-BB4C-51FF29AC52DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50C81359-9E96-46D8-BB4C-51FF29AC52DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E3FFD9-65E6-4D99-A96B-ACE2F055DC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E3FFD9-65E6-4D99-A96B-ACE2F055DC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E3FFD9-65E6-4D99-A96B-ACE2F055DC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E3FFD9-65E6-4D99-A96B-ACE2F055DC6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
