@@ -54,6 +54,7 @@
         {
             return (a * b) / 2;
         }
+
     }
 
     public class CircleArea : IAreaCalculation

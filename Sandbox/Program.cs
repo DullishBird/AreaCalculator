@@ -5,6 +5,7 @@ using AreaCalculation;
     IAreaCalculation circle = new CircleArea();
     double[] r = { 0 };
     Console.WriteLine(circle.GetArea(r));
+
     IAreaCalculation area = new TriangleArea();
     double[] sides = { 5, 7, 21 };
     Console.WriteLine(area.GetArea(sides));

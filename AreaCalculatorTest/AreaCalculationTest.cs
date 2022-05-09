@@ -45,6 +45,7 @@ namespace AreaCalculatorTest
     public class CircleCalculationTest
     {
         IAreaCalculation circleArea = new CircleArea();
+
         [TestMethod]
         public void AreaTest()
         {
