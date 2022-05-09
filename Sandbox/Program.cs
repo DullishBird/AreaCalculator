@@ -2,8 +2,11 @@
 using AreaCalculation;
 
 {
+    IAreaCalculation circle = new CircleArea();
+    double[] r = { 0 };
+    Console.WriteLine(circle.GetArea(r));
     IAreaCalculation area = new TriangleArea();
-    double[] sides = { 4.0 , 5.0 , 6.4031242374328486864882176746218 };
+    double[] sides = { 5, 7, 21 };
     Console.WriteLine(area.GetArea(sides));
 }
 

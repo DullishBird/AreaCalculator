@@ -14,14 +14,16 @@
                 throw new ArgumentException("Invalid arguments count.");
             }
 
-            if (args.Length > 3)
-            {
-                throw new ArgumentException("Too many arguments.");
-            }
-
             if (args[0] < 0 || args[1] < 0 || args[2] < 0)
             {
                 throw new ArgumentException("Triangle's side length cannot be negative");
+            }
+
+            if (args[0] + args[1] < args[2] || 
+                args[2] + args[1] < args[0] ||
+                args[0] + args[2] < args[1])
+            {
+                throw new ArgumentException("One triangle's side cannot be higher than sum of two others.");
             }
 
             double aPow = Math.Pow(args[0], 2);
@@ -45,7 +47,7 @@
 
             double p = (args[0] + args[1] + args[2]) / 2;
 
-            return (double)Math.Sqrt(p * (p - args[0]) * (p - args[1]) * (p - args[2]));
+            return Math.Sqrt(p * (p - args[0]) * (p - args[1]) * (p - args[2]));
         }
 
         private double GetRightTriangleArea(double a, double b)
@@ -62,12 +64,6 @@
             {
                 throw new ArgumentException("Invalid arguments count.");
             }
-
-            if (args.Length > 1)
-            {
-                throw new ArgumentException("Too many arguments.");
-            }
-
 
             if (args[0] < 0)
             {

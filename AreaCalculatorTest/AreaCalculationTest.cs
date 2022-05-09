@@ -10,7 +10,7 @@ namespace AreaCalculatorTest
         IAreaCalculation triangleArea = new TriangleArea();
 
         [TestMethod]
-        public void TriangleAreaTest()
+        public void AreaTest()
         {
             double[] sides = { 4.0, 5.0, 6.4031242374328486864882176746218 };
 
@@ -21,9 +21,8 @@ namespace AreaCalculatorTest
         }
 
         [TestMethod]
-        public void TriangleExceptionTest()   //для круга еще
+        public void ExceptionTest()   //для круга еще
         {
-            //IAreaCalculation triangleArea = new TriangleArea();
             double[] sides = { -4.0, 5.0, 6.4031242374328486864882176746218 };
             Action action = () => triangleArea.GetArea(sides);
 
@@ -31,9 +30,10 @@ namespace AreaCalculatorTest
         }
 
         [TestMethod]
-        public void TriangleFourParamsTest()
+        public void ZeroAsAgrs()
         {
-            double[] sides = { 4.0, 5.0, 6.4031242374328486864882176746218, 5.0 };
+            double[] sides = { 0.0, 5.0, 6.4031242374328486864882176746218 };
+            
             Action action = () => triangleArea.GetArea(sides);
 
             Assert.ThrowsException<ArgumentException>(action);
@@ -46,7 +46,7 @@ namespace AreaCalculatorTest
     {
         IAreaCalculation circleArea = new CircleArea();
         [TestMethod]
-        public void CircleAreaTest()
+        public void AreaTest()
         {
 
             double expected = 201.06;
@@ -56,7 +56,7 @@ namespace AreaCalculatorTest
         }
 
         [TestMethod]
-        public void CircleExceptionTest()
+        public void ExceptionTest()
         {
             double[] radius = { -8 };
             Action action = () => circleArea.GetArea(radius);
@@ -65,21 +65,22 @@ namespace AreaCalculatorTest
         }
 
         [TestMethod]
-        public void CircleTwoParamsExceptionTest()
+        public void ZeroArgsException()
         {
-            double[] radius = { 8 , 1 };
+            double[] radius = { };
             Action action = () => circleArea.GetArea(radius);
 
             Assert.ThrowsException<ArgumentException>(action);
         }
 
         [TestMethod]
-        public void CircleZeroParamsExceptionTest()
+        public void ZeroAsAgrs()
         {
-            double[] radius = { };
-            Action action = () => circleArea.GetArea(radius);
+            double expected = 0;
+            double r = 0;
+            double actual = circleArea.GetArea(r);
 
-            Assert.ThrowsException<ArgumentException>(action);
+            Assert.AreEqual(expected, actual, "Expected and actual are not equal.");
         }
     }
 }
